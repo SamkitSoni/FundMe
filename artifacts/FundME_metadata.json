@@ -14,7 +14,7 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "funders",
+						"name": "",
 						"type": "address"
 					}
 				],
@@ -22,7 +22,7 @@
 				"outputs": [
 					{
 						"internalType": "uint256",
-						"name": "amountFunded",
+						"name": "",
 						"type": "uint256"
 					}
 				],
@@ -125,11 +125,11 @@
 			]
 		},
 		"FundMe.sol": {
-			"keccak256": "0x4d15fd23c2293d0b57fc6a54c1969ce6fefe4dddfafb642efc92d967a115e717",
+			"keccak256": "0x44e3c6ef684d5c901b3aa8e2895669597521c321e115bf009a7c6807ac4e8d09",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://9bf71aa7466847ded42a4fa8b274bd2da2ecbc96641799762e95493fe1fb5e5b",
-				"dweb:/ipfs/QmZpKt4fjx9YYSTxnL8yvhLzt1FtBxFRoHGJ1PRn2frFKT"
+				"bzz-raw://46c1df134830dcf955ec19c92dd35d3f52c3c615b67dba664630f940895f7320",
+				"dweb:/ipfs/QmQvzM73WhNhV1rtAsmLnx8eRUNNF7vpVHAvhp9HtSkATL"
 			]
 		},
 		"PriceConvertor.sol": {

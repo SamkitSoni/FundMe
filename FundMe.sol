@@ -10,11 +10,11 @@ import {PriceConvertor} from "PriceConvertor.sol";
 contract FundME {
     using PriceConvertor for uint256; //Attaching the library to all uint256.
 
-    uint256 public minUsd = 5e18;
+    uint256 public constant MINIMUM_USD = 5e18;
     address[] public funders;
-    mapping(address funders => uint256 amountFunded) public addressToAmountFunded;
+    mapping(address => uint256) public addressToAmountFunded;
 
-    address public owner;
+    address public immutable owner;
 
     constructor() {
         owner = msg.sender;
@@ -23,7 +23,7 @@ contract FundME {
     function fund() public payable {
         //Allow users to send $
         //Have a minimum $ sent
-        require(msg.value.getConversionRate() >= minUsd, "didn't send enough ETH"); //1e18 = 1 * 10 ** 18 
+        require(msg.value.getConversionRate() >= MINIMUM_USD, "didn't send enough ETH"); //1e18 = 1 * 10 ** 18 
         funders.push(msg.sender);
         addressToAmountFunded[msg.sender] += msg.value;
     }
@@ -54,4 +54,13 @@ contract FundME {
         _; //whatever you wanna do in the function
         //order of this undersocre matters
     }
- }
+
+    //without calling Fund function
+    receive() external payable { 
+        fund();
+    }
+
+    fallback() external payable { 
+        fund();
+    }
+}
