@@ -25,7 +25,7 @@ contract FundME {
         //Have a minimum $ sent
         require(msg.value.getConversionRate() >= minUsd, "didn't send enough ETH"); //1e18 = 1 * 10 ** 18 
         funders.push(msg.sender);
-        addressToAmountFunded[msg.sender] = addressToAmountFunded[msg.sender];
+        addressToAmountFunded[msg.sender] += msg.value;
     }
 
     function withdraw() public onlyOwner {
